@@ -1,73 +1,78 @@
-# React + TypeScript + Vite
+# NP Archive: Interactive Campus Heritage App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![NP Archive Banner](/public/logo.png)
 
-Currently, two official plugins are available:
+> **Preserving Memories, Celebrating History.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**NP Archive** is a modern progressive web application designed to help students and visitors explore the rich history of Ngee Ann Polytechnic. The application combines archival storytelling with interactive gamification to create an engaging heritage experience.
 
-## React Compiler
+This project was built as part of the **Year 3 PROID Assignment**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📱 Application Overview
 
-## Expanding the ESLint configuration
+The application features a premium, minimalist design inspired by **Apple's Liquid Glass** aesthetic, utilizing the official NP Brand Colors (Navy Blue & Gold). Key components include:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🔍 Scavenger Hunt (Main Feature)
+An interactive game that guides users across campus landmarks.
+- **Clue System**: Users receive riddles to find specific locations.
+- **QR Simulation**: A realistic camera interface simulates scanning QR codes at checkpoints.
+- **Trivia Challenges**: Quizzes related to the location's history unlock the next stage.
+- **Leaderboard**: A ranking system to foster friendly competition.
+- **Progress Tracking**: Local state management tracks user points and current stage.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🏛️ Future Modules (Placeholders)
+- **Memory Hub**: A social feed for students to share and discover campus stories.
+- **Heritage Map**: An interactive map view of historical landmarks.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/) (TypeScript)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Routing**: [React Router](https://reactrouter.com/) (HashRouter)
+- **Icons**: [Lucide React](https://lucide.dev/)
+
+## 🚀 Getting Started
+
+We have detailed guides for setting up and deploying the project:
+
+- **[Developer Setup Guide](./SETUP.md)**: Instructions for installing dependencies and running the local development server.
+- **[Deployment Guide](./DEPLOY.md)**: Steps to deploy the application to GitHub Pages.
+
+### Quick Start
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+# Opens at http://localhost:3000
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📂 Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The project is organized in the root directory:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+np-archive/
+├── src/
+│   ├── components/        # Reusable UI (GlassPane, NavBar)
+│   ├── features/          # Feature-specific logic
+│   │   └── scavenger-hunt/# Game dashboard, data, and modal logic
+│   ├── pages/             # Main route pages (Home)
+│   ├── lib/               # Utilities (cn, tailwind-merge)
+│   └── App.tsx            # Main router and layout configuration
+├── public/                # Static assets
+└── ...config files        # Vite, Tailwind, TypeScript configs
+```
+
+## 🎨 Design Philosophy
+
+- **Glassmorphism**: Extensive use of backdrop blur (`backdrop-blur-xl`), semi-transparent whites, and subtle borders to create depth and hierarchy.
+- **Responsiveness**: A "Bottom Tab" navigation for mobile users (similar to iOS) and a "Floating Capsule" navigation for desktop users.
+- **NP Branding**:
+  - `np-navy`: `#002F6C`
+  - `np-gold`: `#F2A900`
+
+---
+*Built for Ngee Ann Polytechnic PROID Assignment.*
