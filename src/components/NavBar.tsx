@@ -37,7 +37,7 @@ export function NavBar() {
             {/* Desktop Top Nav */}
             <nav className="hidden md:flex fixed top-0 left-0 right-0 z-50 px-8 py-4 items-center justify-between pointer-events-none">
                 <div className="pointer-events-auto bg-glass-bg backdrop-blur-xl border border-glass-border shadow-sm rounded-full px-8 py-3 flex gap-8 mx-auto bg-white/80 dark:bg-slate-900/80">
-                    <img src="/logo.png" alt="NP Archive" className="h-6 w-auto hidden" /> {/* Placeholder for logo */}
+                    <img src="./logo.png" alt="NP Archive" className="h-6 w-auto hidden" /> {/* Placeholder for logo */}
                     <span className="font-bold text-np-navy tracking-tight text-lg">NP Archive</span>
                     <div className="w-[1px] h-6 bg-gray-300 mx-2"></div>
                     {navItems.map((item) => (

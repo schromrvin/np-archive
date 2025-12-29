@@ -6,8 +6,10 @@ import { ClueCard } from "./ClueCard";
 import { HUNT_DATA } from "./data";
 import { Trophy, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { usePageTitle } from "@/lib/usePageTitle";
 
 export function HuntDashboard() {
+    usePageTitle("NP Archive | Scavenger Hunt");
     const [stageIndex, setStageIndex] = useState(0);
     const [points, setPoints] = useState(0);
     const [isScanning, setIsScanning] = useState(false);

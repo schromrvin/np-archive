@@ -1,6 +1,7 @@
 import { GlassPane } from "@/components/GlassPane";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Medal } from "lucide-react";
+import { usePageTitle } from "@/lib/usePageTitle";
 
 const LEADERBOARD_DATA = [
     { rank: 1, name: "Sarah Tan", points: 1250, school: "ICT" },
@@ -11,6 +12,7 @@ const LEADERBOARD_DATA = [
 ];
 
 export function Leaderboard() {
+    usePageTitle("NP Archive | Leaderboard");
     return (
         <div className="min-h-screen p-6 pb-24 max-w-lg mx-auto space-y-6">
             <header className="flex items-center gap-4 pt-8 md:pt-20">

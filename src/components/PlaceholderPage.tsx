@@ -1,6 +1,7 @@
 import { GlassPane } from "@/components/GlassPane";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { usePageTitle } from "@/lib/usePageTitle";
 
 interface PlaceholderPageProps {
     title: string;
@@ -8,6 +9,7 @@ interface PlaceholderPageProps {
 }
 
 export function PlaceholderPage({ title, description }: PlaceholderPageProps) {
+    usePageTitle(`NP Archive | ${title}`);
     return (
         <div className="min-h-screen p-6 flex flex-col justify-center items-center pb-24">
             <GlassPane className="max-w-md w-full text-center space-y-4">
