@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased overflow-x-hidden;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .apple-glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-glass;
+  }
+
+  .apple-glass-dark {
+    @apply bg-slate-900/70 backdrop-blur-xl border border-white/10 shadow-glass text-white;
+  }
+}

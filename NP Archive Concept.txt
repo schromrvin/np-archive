@@ -1,0 +1,77 @@
+NP ARCHIVE CONCEPT
+Main Content
+1. Interactive Chronological Timeline
+* A 3D and regular interactive timeline that users can swipe, scroll, or jump across.
+* Features a dual mode interface,
+i. Timeline view for exploration and discovery (3D)
+ii. List view for direct access and quick reference (regular website)
+* Each node in the timeline for both represents a key moment in the school’s history and heritage, not just a year.
+2. Filter System
+* Each timeline node can be color-coded, functioning as both,
+i. A historical marker
+ii. A filter type
+* Examples or certain filters for the nodes include,
+i. NP Founding Milestones + Campus & Spaces
+ii. Student Life & Culture + CCA Highlights & Achievements
+iii. Alumni + Academic Excellence & Signature Projects
+iv. Hidden Stories & Fun Facts (e.g. lesser-known stories, myths)
+
+Feature 1: Interactive Virtual Spaces
+Accessed through the interactive timeline, selected meaningful spaces with historical significance, e.g. the main entrance (NP vs Ngee Ann Technical College), will have a virtual 3D space for users to explore.
+* 360-degree virtual space of chosen locations
+* A past-and-present slider filter that allows users to,
+o View the same space / location at different points in time
+o Compare changes to the space / location visually concurrently
+* Hotspots (clickable icons in the space) within the spaces unlock,
+o Official historical explanations in a card
+o Photos, videos, and archival media (includes user generated content about that location and / or from that time)
+o Hidden stores / fun facts about the space (“Did you know?” cards)
+
+Feature 2: Memory Hub
+1. Memory Feed
+Users can upload user generated content like,
+a. Event photos
+b. Student life moments
+c. CCA achievements
+d. Reflections or short captions
+2. Campus Memory Wall
+Selected UGC appears on a large touchscreen display on campus (and on the digital version of it available in the webapp)
+a. In Idle mode,
+i. Auto-scrolling memory cards
+b. When interacted with,
+i. Tap to flip card
+ii. Front: image, video, media, etc.
+iii. Back: message, reflection, context, etc.
+3. Time Capsule Mode
+a. Users submit a memory
+b. Select a future date and time
+c. Enter an email address
+d. On the chosen date and time,
+i. The system automatically sends the preserved memory back to the user
+
+Feature 3: Guided Scavenger Hunt (Limited-Time)
+A time-bounded, event-based experience designed to attract our stakeholders to not only the digital portal, but also the physical historical locations in the school. It also adds a social element that could better inspire our stakeholders to interact with NP’s history and heritage.
+How it works
+Users start the scavenger hunt via the mobile digital portal
+The portal provides,
+* Clues to the next physical location
+* Clues for the quizzes at the checkpoints
+* Navigation instructions to the different physical locations
+
+At each checkpoint,
+* Users scan a QR code
+* Complete a short quiz or minigame challenge related to that physical location’s history
+* Successful attempts unlock the next clue / physical location to go to
+Things to take note
+The scavenger hunt only runs during selected weeks, and especially during major events like NP Day, RED Camp, open-house and freshman orientation.
+Players are ranked based on how fast they complete the quizzes or minigame challengers at each of the checkpoints, and how many correct answers they get for the quizzes.
+Prizes for the scavenger hunt include,
+* For semestral events,
+o Top 3 winners get NP shirt
+o Consultation gets bookmarks
+* For major keystone events,
+o Top 3 winners get NP jacket, vouchers, cash prizes
+o Consultation gets keychains
+
+
+

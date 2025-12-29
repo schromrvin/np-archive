@@ -1,0 +1,62 @@
+import { NavLink } from "react-router-dom";
+import { Home, Map, QrCode, Search } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+export function NavBar() {
+    const navItems = [
+        { icon: Home, label: "Home", to: "/" },
+        { icon: Map, label: "Heritage", to: "/heritage" },
+        { icon: QrCode, label: "Scan", to: "/scavenger-hunt", highlight: true },
+        { icon: Search, label: "Memory", to: "/memory" },
+    ];
+
+    return (
+        <>
+            {/* Mobile Bottom Tab Bar */}
+            <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+                <div className="mx-4 mb-4 rounded-3xl bg-white/80 backdrop-blur-xl border border-white/40 shadow-glass px-6 py-3 flex justify-between items-center dark:bg-slate-900/80">
+                    {navItems.map((item) => (
+                        <NavLink
+                            key={item.to}
+                            to={item.to}
+                            className={({ isActive }) =>
+                                cn(
+                                    "flex flex-col items-center gap-1 transition-all duration-300",
+                                    isActive ? "text-np-navy scale-110" : "text-gray-400 hover:text-gray-600",
+                                    item.highlight && "bg-np-gold/20 p-2 rounded-full -mt-6 size-14 justify-center shadow-lg border-4 border-gray-50 dark:border-slate-950"
+                                )
+                            }
+                        >
+                            <item.icon className={cn("size-6", item.highlight && "text-np-gold size-8 stroke-[2.5px]")} />
+                            {!item.highlight && <span className="text-[10px] font-medium">{item.label}</span>}
+                        </NavLink>
+                    ))}
+                </div>
+            </nav>
+
+            {/* Desktop Top Nav */}
+            <nav className="hidden md:flex fixed top-0 left-0 right-0 z-50 px-8 py-4 items-center justify-between pointer-events-none">
+                <div className="pointer-events-auto bg-glass-bg backdrop-blur-xl border border-glass-border shadow-sm rounded-full px-8 py-3 flex gap-8 mx-auto bg-white/80 dark:bg-slate-900/80">
+                    <img src="/logo.png" alt="NP Archive" className="h-6 w-auto hidden" /> {/* Placeholder for logo */}
+                    <span className="font-bold text-np-navy tracking-tight text-lg">NP Archive</span>
+                    <div className="w-[1px] h-6 bg-gray-300 mx-2"></div>
+                    {navItems.map((item) => (
+                        <NavLink
+                            key={item.to}
+                            to={item.to}
+                            className={({ isActive }) =>
+                                cn(
+                                    "flex items-center gap-2 px-4 py-1.5 rounded-full transition-all text-sm font-medium",
+                                    isActive ? "bg-np-navy text-white shadow-md" : "text-gray-600 hover:bg-gray-100/50"
+                                )
+                            }
+                        >
+                            <item.icon className="size-4" />
+                            <span>{item.label}</span>
+                        </NavLink>
+                    ))}
+                </div>
+            </nav>
+        </>
+    );
+}
