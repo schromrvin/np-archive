@@ -1,16 +1,46 @@
+export type ChallengeType = 'quiz' | 'crossclimb';
+
 export interface QuizQuestion {
     question: string;
     options: string[];
-    correctIndex: number; // 0-based
+    correctAnswer: string;
+}
+
+export interface QuizConfig {
+    questions: QuizQuestion[];
+}
+
+export interface CrossclimbLevel {
+    question: string;
+    answer: string; // The word they must form
+}
+
+export interface CrossclimbConfig {
+    steps: CrossclimbLevel[];
+    ladderTheme: string; // e.g., "Technology"
+    note?: string; // Optional instructions
 }
 
 export interface HuntStage {
     id: string;
     title: string;
     clue: string;
+    // Removed "locationName" to hide hints from UI, but kept in data for internal reference.
     locationName: string;
-    quiz: QuizQuestion;
     points: number;
+    type: ChallengeType;
+    quiz?: QuizConfig;
+    crossclimb?: CrossclimbConfig;
+}
+
+// Helper to shuffle array
+export function shuffleArray<T>(array: T[]): T[] {
+    const newArr = [...array];
+    for (let i = newArr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+    }
+    return newArr;
 }
 
 export const HUNT_DATA: HuntStage[] = [
@@ -20,58 +50,70 @@ export const HUNT_DATA: HuntStage[] = [
         clue: "Where books unite and knowledge flows, look for the lion where the river goes.",
         locationName: "Lien Ying Chow Library",
         points: 100,
+        type: 'quiz',
         quiz: {
-            question: "In what year was the Lien Ying Chow Library officially opened?",
-            options: ["1988", "1995", "1998", "2001"],
-            correctIndex: 2
+            questions: [
+                {
+                    question: "In what year was Ngee Ann College officially inaugurated?",
+                    options: ["1960", "1963", "1968", "1972"],
+                    correctAnswer: "1963"
+                },
+                {
+                    question: "Who inaugurated Ngee Ann College?",
+                    options: ["Lee Kuan Yew", "Goh Keng Swee", "Toh Chin Chye", "Dr. Yi-Sheng Yu"],
+                    correctAnswer: "Dr. Yi-Sheng Yu"
+                },
+                {
+                    question: "Where was the first campus located?",
+                    options: ["Clementi", "Tank Road", "Bukit Timah", "Jurong"],
+                    correctAnswer: "Tank Road"
+                }
+            ]
         }
     },
     {
         id: "stage-2",
-        title: "Technology's Heart",
+        title: "The Connective Tissue",
         clue: "I have many windows but no house. I compute but have no brain. Find the block where IT reigns.",
         locationName: "Block 27 - School of InfoComm Tech",
-        points: 150,
-        quiz: {
-            question: "Which of these is a diploma offered by the School of ICT?",
-            options: ["Diploma in Accounting", "Diploma in Immersive Media", "Diploma in Nursing", "Diploma in Applied Chemistry"],
-            correctIndex: 1
+        points: 250,
+        type: 'crossclimb',
+        crossclimb: {
+            ladderTheme: "Tech to Table",
+            note: "Memorize these 4 answers. They have a double meaning for the next location!",
+            steps: [
+                { question: "Software users navigate this list of options. (e.g., Start ___).", answer: "MENU" },
+                { question: "Since 1996, this 'coffee' language has been taught in ICT.", answer: "JAVA" },
+                { question: "In databases, data is organized in rows and columns within a ___.", answer: "TABLE" },
+                { question: "The Computer Centre houses this powerful network machine.", answer: "SERVER" }
+            ]
         }
     },
     {
         id: "stage-3",
         title: "The Historical Center",
-        clue: "A plaza of red, a gathering space. The heartbeat of campus, the central place.",
+        clue: "Go to the campus social hub, a place of gathering and nourishment, filled with Menus, Tables, and Servers.",
         locationName: "Makan Place / Atrium",
-        points: 120,
+        points: 150,
+        type: 'quiz',
         quiz: {
-            question: "What is the nickname often used for the central gathering area near Makan Place?",
-            options: ["The Red Square", "The Atrium", "The Hub", "The Core"],
-            correctIndex: 1
-        }
-    },
-    {
-        id: "stage-4",
-        title: "Engineering Feats",
-        clue: "Gears and circuits, metal and code. Where the builders of tomorrow unload.",
-        locationName: "Block 58 - School of Engineering",
-        points: 130,
-        quiz: {
-            question: "Ngee Ann Polytechnic was founded in which year?",
-            options: ["1953", "1963", "1973", "1983"],
-            correctIndex: 1
-        }
-    },
-    {
-        id: "stage-5",
-        title: "Final Destination",
-        clue: "A capsule of time, a memory keeper. Return to where you started, but deeper.",
-        locationName: "NP Archive Center",
-        points: 200,
-        quiz: {
-            question: "What is the primary goal of the NP Archive?",
-            options: ["To store old exams", "Preserving Memories, Celebrating History", "To sell textbooks", "To organize events"],
-            correctIndex: 1
+            questions: [
+                {
+                    question: "What replaced 'The Octagon' in NP's Phase 5 redevelopment?",
+                    options: ["The Atrium", "The Convention Centre", "Block 58", "Sports Complex"],
+                    correctAnswer: "The Convention Centre"
+                },
+                {
+                    question: "The Tembusu tree planted in 1988 marked which anniversary?",
+                    options: ["10th", "20th", "25th", "50th"],
+                    correctAnswer: "25th"
+                },
+                {
+                    question: "In the 70s, what replaced Chinese as the sole medium of instruction?",
+                    options: ["English", "Malay", "Tamil", "Teochew"],
+                    correctAnswer: "English"
+                }
+            ]
         }
     }
 ];
