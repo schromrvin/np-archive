@@ -1,7 +1,7 @@
 import { GlassPane } from "@/components/GlassPane";
 import { type CrossclimbConfig } from "./data";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { CheckCircle, HelpCircle, ArrowUp } from "lucide-react";
 

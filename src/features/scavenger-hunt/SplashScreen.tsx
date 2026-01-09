@@ -1,5 +1,5 @@
 import { GlassPane } from "@/components/GlassPane";
-import { ArrowRight, Trophy, Clock, Gift, MapPin } from "lucide-react";
+import { ArrowRight, Trophy, Clock, MapPin } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 

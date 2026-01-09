@@ -1,6 +1,6 @@
-import { GlassPane } from "@/components/GlassPane";
-import { X, Map as MapIcon, RotateCcw } from "lucide-react";
-import { useState } from "react";
+// import { GlassPane } from "@/components/GlassPane";
+import { X, Map as MapIcon } from "lucide-react";
+// import { useState } from "react";
 import mapImage from "@/assets/campus_map.png"; // We will ensure this exists
 import { motion, AnimatePresence } from "framer-motion";
 
