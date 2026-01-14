@@ -12,6 +12,11 @@ export default {
       colors: {
         'np-navy': '#002F6C',
         'np-gold': '#F2A900',
+        'np-red': {
+          500: '#E31837',
+          600: '#D1122E', // Official-ish red
+          700: '#B00F25',
+        },
       },
       backdropBlur: {
         'xs': '2px',

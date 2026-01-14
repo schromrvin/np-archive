@@ -7,11 +7,11 @@ export const MOCK_POSTS: Post[] = [
         user: {
             id: "u1",
             name: "NP Photography Club",
-            avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=NPPhoto",
+            avatar: "https://images.unsplash.com/photo-1542596594-649edbc13630?q=80&w=200&auto=format&fit=crop",
             role: "Student",
         },
         type: "image",
-        mediaUrl: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop",
+        mediaUrl: "https://www.np.edu.sg/images/default-source/about-np-2/facilities/atrium.jpg?sfvrsn=57267937_2?q=80&w=800&auto=format&fit=crop",
         content: "Golden hour at the Atrium! 🌅 Who remembers rushing purely for the free popcorn? #NgeeAnnPoly #CampusLife #Sunset",
         likes: 245,
         comments: [],

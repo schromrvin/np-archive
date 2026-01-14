@@ -3,16 +3,27 @@ import { useState } from "react";
 import { Plus } from "lucide-react";
 import { CapsuleCard } from "../components/CapsuleCard";
 import { CreateCapsuleModal } from "../components/CreateCapsuleModal";
+import { CapsuleViewer } from "../components/CapsuleViewer";
 import { MOCK_CAPSULES } from "../data";
 import type { Capsule } from "../types";
 
 export function TimeCapsule() {
     const [capsules, setCapsules] = useState<Capsule[]>(MOCK_CAPSULES);
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+    const [selectedCapsule, setSelectedCapsule] = useState<Capsule | null>(null);
 
     const handleCreateCapsule = (newCapsule: Capsule) => {
         setCapsules([newCapsule, ...capsules]);
         setIsCreateModalOpen(false);
+    };
+
+    const handleCapsuleClick = (capsule: Capsule) => {
+        if (!capsule.isLocked) {
+            setSelectedCapsule(capsule);
+        } else {
+            // Maybe show shake animation or "Locked" toast
+            alert(`This capsule is locked until ${new Date(capsule.unlockDate).toLocaleDateString()}`);
+        }
     };
 
     return (
@@ -41,7 +52,9 @@ export function TimeCapsule() {
             {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {capsules.map(capsule => (
-                    <CapsuleCard key={capsule.id} capsule={capsule} />
+                    <div key={capsule.id} onClick={() => handleCapsuleClick(capsule)}>
+                        <CapsuleCard capsule={capsule} />
+                    </div>
                 ))}
 
                 {/* 'Add New' Placeholder Card */}
@@ -60,6 +73,11 @@ export function TimeCapsule() {
                 isOpen={isCreateModalOpen}
                 onClose={() => setIsCreateModalOpen(false)}
                 onSubmit={handleCreateCapsule}
+            />
+
+            <CapsuleViewer
+                capsule={selectedCapsule}
+                onClose={() => setSelectedCapsule(null)}
             />
         </div>
     );

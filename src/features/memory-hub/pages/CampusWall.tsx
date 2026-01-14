@@ -1,14 +1,18 @@
 
 import { useState } from "react";
-import { Plus } from "lucide-react";
+import { Plus, LayoutGrid, List } from "lucide-react";
 import { PostCard } from "../components/PostCard";
+import { CollageItem } from "../components/CollageItem";
 import { MOCK_POSTS } from "../data";
 import type { Post } from "../types";
 import { CreatePostModal } from "../components/CreatePostModal";
+import { clsx } from "clsx";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function CampusWall() {
     const [posts, setPosts] = useState<Post[]>(MOCK_POSTS);
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+    const [viewMode, setViewMode] = useState<"collage" | "feed">("collage");
 
     const handleCreatePost = (newPost: Post) => {
         // Prepend the new post
@@ -17,17 +21,66 @@ export function CampusWall() {
     };
 
     return (
-        <div className="relative min-h-screen">
-            {/* Stories / Highlight Bar (Optional placeholder) */}
-            <div className="flex gap-4 overflow-x-auto pb-6 mb-6 px-2 scrollbar-hide">
-                {/* Add story bubbles here if needed */}
+        <div className="relative min-h-screen pb-20">
+            {/* View Toggle */}
+            <div className="flex justify-end mb-6 px-4">
+                <div className="bg-white p-1 rounded-lg border border-gray-200 shadow-sm flex items-center gap-1">
+                    <button
+                        onClick={() => setViewMode("collage")}
+                        className={clsx(
+                            "p-2 rounded-md transition-all",
+                            viewMode === "collage" ? "bg-gray-100 text-gray-900 shadow-sm" : "text-gray-400 hover:text-gray-600"
+                        )}
+                        title="Collage View"
+                    >
+                        <LayoutGrid className="w-4 h-4" />
+                    </button>
+                    <button
+                        onClick={() => setViewMode("feed")}
+                        className={clsx(
+                            "p-2 rounded-md transition-all",
+                            viewMode === "feed" ? "bg-gray-100 text-gray-900 shadow-sm" : "text-gray-400 hover:text-gray-600"
+                        )}
+                        title="Feed View"
+                    >
+                        <List className="w-4 h-4" />
+                    </button>
+                </div>
             </div>
 
             {/* Feed Layout */}
-            <div className="max-w-xl mx-auto">
-                {posts.map((post) => (
-                    <PostCard key={post.id} post={post} />
-                ))}
+            <div className={clsx("transition-all duration-500", viewMode === "collage" ? "max-w-5xl mx-auto px-4" : "max-w-xl mx-auto")}>
+                <AnimatePresence mode="wait">
+                    {viewMode === "collage" ? (
+                        <motion.div
+                            key="collage"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6"
+                        >
+                            {posts.map((post, index) => (
+                                <CollageItem
+                                    key={`collage-${post.id}`}
+                                    post={post}
+                                    index={index}
+                                    onClick={() => { }} // Could open lightbox
+                                />
+                            ))}
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            key="feed"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                        >
+                            {posts.map((post) => (
+                                <PostCard key={post.id} post={post} />
+                            ))}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
 
             {/* FAB for Mobile / Action Button for Desktop */}
