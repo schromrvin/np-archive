@@ -1,5 +1,3 @@
-import type gsap from "gsap";
-
 export const STEP3: Record<string, gsap.TweenVars> = {
   "#item-polaroid": { x: 59, y: -85, rotate: -4, scale: 1.09, autoAlpha: 1 },
   "#item-letter": { x: 90, y: -15, rotate: 3, scale: 1.3, autoAlpha: 1 },
