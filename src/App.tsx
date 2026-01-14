@@ -4,6 +4,11 @@ import { Home } from "@/pages/Home";
 import { HuntDashboard } from "@/features/scavenger-hunt/HuntDashboard";
 import { PlaceholderPage } from "@/components/PlaceholderPage";
 import { Leaderboard } from "@/features/scavenger-hunt/Leaderboard";
+import { MemoryHubLayout } from "@/features/memory-hub/layout/MemoryHubLayout";
+import { CampusWall } from "@/features/memory-hub/pages/CampusWall";
+import { StudentVoices } from "@/features/memory-hub/pages/StudentVoices";
+import { TimeCapsule } from "@/features/memory-hub/pages/TimeCapsule";
+import { Navigate } from "react-router-dom";
 
 function AppLayout() {
   return (
@@ -36,15 +41,12 @@ function App() {
               />
             }
           />
-          <Route
-            path="/memory"
-            element={
-              <PlaceholderPage
-                title="Memory Hub"
-                description="A collection of stories, photos, and memories from past and present students."
-              />
-            }
-          />
+          <Route path="/memory" element={<MemoryHubLayout />}>
+            <Route index element={<Navigate to="wall" replace />} />
+            <Route path="wall" element={<CampusWall />} />
+            <Route path="voices" element={<StudentVoices />} />
+            <Route path="capsule" element={<TimeCapsule />} />
+          </Route>
         </Route>
       </Routes>
     </Router>
