@@ -48,5 +48,8 @@ export interface Capsule {
     createdAt: string;
     isLocked: boolean;
     coverImage?: string;
+    mediaUrl?: string; // Optional media (photo or video)
+    mediaType?: "image" | "video";
+    email?: string; // For future notifications
     content?: string; // Text content
 }

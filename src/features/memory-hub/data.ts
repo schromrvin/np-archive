@@ -257,6 +257,19 @@ export const MOCK_CAPSULES: Capsule[] = [
         unlockDate: "2027-04-20",
         createdAt: "2024-01-10",
         isLocked: true,
-        coverImage: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=800&auto=format&fit=crop"
+        coverImage: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=800&auto=format&fit=crop",
+        email: "student@example.com"
+    },
+    {
+        id: "c4",
+        title: "CCA Farewell",
+        description: "Last day of training with the team.",
+        unlockDate: "2023-11-15",
+        createdAt: "2023-11-01",
+        isLocked: false,
+        coverImage: "https://www.np.edu.sg/images/default-source/student-life/clubs-societies/arts-cultural/english-drama.jpg?sfvrsn=5ea4583f_2?q=80&w=800&auto=format&fit=crop",
+        content: "Gonna miss these guys so much! 😭",
+        mediaUrl: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=800&auto=format&fit=crop",
+        mediaType: "image",
     }
 ];

@@ -106,7 +106,10 @@ export function HuntDashboard() {
 
     if (completed) {
         return (
-            <div className="min-h-screen p-6 pb-24 flex flex-col items-center justify-center space-y-6 max-w-lg mx-auto text-center bg-[url('/bg-pattern.png')] bg-fixed bg-cover">
+            <div
+                className="min-h-screen p-6 pb-24 flex flex-col items-center justify-center space-y-6 max-w-lg mx-auto text-center bg-fixed bg-cover"
+                style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-pattern.png)` }}
+            >
                 <GlassPane className="p-8 space-y-6 flex flex-col items-center shadow-2xl border-np-gold/50 relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-np-navy via-np-gold to-np-navy" />
 

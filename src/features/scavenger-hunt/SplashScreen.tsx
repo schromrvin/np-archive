@@ -35,7 +35,10 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
     }, []);
 
     return (
-        <div className="fixed inset-0 z-40 bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-6 bg-[url('/bg-pattern.png')] bg-cover bg-blend-overlay overflow-y-auto">
+        <div
+            className="fixed inset-0 z-40 bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-6 bg-cover bg-blend-overlay overflow-y-auto"
+            style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-pattern.png)` }}
+        >
             <GlassPane className="max-w-2xl w-full p-8 md:p-12 shadow-2xl bg-white/10 dark:bg-black/40 border-white/20 text-white relative overflow-hidden my-auto">
                 {/* Decorative background blobs */}
                 <div className="absolute -top-20 -right-20 w-64 h-64 bg-np-gold/30 rounded-full blur-3xl rounded-full pointer-events-none" />
