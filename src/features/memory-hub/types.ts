@@ -21,7 +21,9 @@ export interface Post {
     content: string; // Caption
     likes: number;
     comments: Comment[];
-    timestamp: string;
+    timestamp: string; // Relative time for display
+    date: string; // ISO date for filtering (YYYY-MM-DD)
+    category: "Campus Life" | "Events" | "Throwback" | "Academic" | "Arts";
     isLiked?: boolean; // For local state simulation
     location?: string;
 }

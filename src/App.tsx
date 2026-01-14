@@ -8,6 +8,7 @@ import { MemoryHubLayout } from "@/features/memory-hub/layout/MemoryHubLayout";
 import { CampusWall } from "@/features/memory-hub/pages/CampusWall";
 import { StudentVoices } from "@/features/memory-hub/pages/StudentVoices";
 import { TimeCapsule } from "@/features/memory-hub/pages/TimeCapsule";
+import { NPWrapped } from "@/features/memory-hub/pages/NPWrapped";
 import { Navigate } from "react-router-dom";
 
 function AppLayout() {
@@ -46,6 +47,7 @@ function App() {
             <Route path="wall" element={<CampusWall />} />
             <Route path="voices" element={<StudentVoices />} />
             <Route path="capsule" element={<TimeCapsule />} />
+            <Route path="wrapped" element={<NPWrapped />} />
           </Route>
         </Route>
       </Routes>

@@ -77,7 +77,7 @@ export function FlipCard({ post, style, className, onFlip }: FlipCardProps) {
                     <div className="space-y-2 text-xs text-gray-500 mt-auto">
                         {post.location && (
                             <div className="flex items-center gap-1.5">
-                                <MapPin className="w-3 h-3 text-np-red-600" />
+                                <MapPin className="w-3 h-3 text-np-gold" />
                                 <span>{post.location}</span>
                             </div>
                         )}
@@ -87,7 +87,7 @@ export function FlipCard({ post, style, className, onFlip }: FlipCardProps) {
                         </div>
                         <div className="flex items-center gap-4 mt-3 pt-3 border-t border-gray-100 font-medium text-gray-700">
                             <div className="flex items-center gap-1">
-                                <Heart className="w-3 h-3 fill-np-red-600 stroke-np-red-600" /> {post.likes}
+                                <Heart className="w-3 h-3 fill-np-navy stroke-np-navy" /> {post.likes}
                             </div>
                             <div className="flex items-center gap-1">
                                 <MessageCircle className="w-3 h-3" /> {post.comments.length}

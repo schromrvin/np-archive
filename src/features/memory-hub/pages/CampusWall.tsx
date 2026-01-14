@@ -14,17 +14,55 @@ export function CampusWall() {
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
     const [viewMode, setViewMode] = useState<"collage" | "feed">("collage");
 
+    const [activeCategory, setActiveCategory] = useState<string>("All");
+    const [activeYear, setActiveYear] = useState<string>("All Time");
+
+    const categories = ["All", "Campus Life", "Events", "Throwback", "Academic", "Arts"];
+    const years = ["All Time", "2024", "2023", "2022", "2018"];
+
     const handleCreatePost = (newPost: Post) => {
         // Prepend the new post
         setPosts([newPost, ...posts]);
         setIsCreateModalOpen(false);
     };
 
+    const filteredPosts = posts.filter(post => {
+        const matchCategory = activeCategory === "All" || post.category === activeCategory;
+        const matchYear = activeYear === "All Time" || post.date.includes(activeYear) || (activeYear === "2018" && post.category === "Throwback"); // Simple logic for demo
+        return matchCategory && matchYear;
+    });
+
     return (
         <div className="relative min-h-screen pb-20">
-            {/* View Toggle */}
-            <div className="flex justify-end mb-6 px-4">
-                <div className="bg-white p-1 rounded-lg border border-gray-200 shadow-sm flex items-center gap-1">
+            <div className="flex flex-col md:flex-row justify-between items-center mb-6 px-4 gap-4">
+                {/* Filters */}
+                <div className="flex items-center gap-2 overflow-x-auto max-w-full pb-2 md:pb-0 custom-scrollbar">
+                    <div className="flex bg-white rounded-lg p-1 border border-gray-200 shadow-sm shrink-0">
+                        <select
+                            value={activeYear}
+                            onChange={(e) => setActiveYear(e.target.value)}
+                            className="text-sm font-medium text-gray-700 bg-transparent py-1 px-2 focus:outline-none cursor-pointer hover:text-np-navy"
+                        >
+                            {years.map(y => <option key={y} value={y}>{y}</option>)}
+                        </select>
+                    </div>
+
+                    {categories.map(cat => (
+                        <button
+                            key={cat}
+                            onClick={() => setActiveCategory(cat)}
+                            className={clsx(
+                                "px-3 py-1.5 rounded-full text-sm font-medium transition-all whitespace-nowrap",
+                                activeCategory === cat ? "bg-np-navy text-white shadow-sm" : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-50"
+                            )}
+                        >
+                            {cat}
+                        </button>
+                    ))}
+                </div>
+
+                {/* View Toggle */}
+                <div className="bg-white p-1 rounded-lg border border-gray-200 shadow-sm flex items-center gap-1 shrink-0">
                     <button
                         onClick={() => setViewMode("collage")}
                         className={clsx(
@@ -59,7 +97,8 @@ export function CampusWall() {
                             exit={{ opacity: 0 }}
                             className="w-full h-full"
                         >
-                            <InfiniteCanvas posts={posts} />
+                            {/* Infinite Canvas needs enough items to look good, so we might duplicate if filtered result is small */}
+                            <InfiniteCanvas posts={filteredPosts.length < 5 ? [...filteredPosts, ...filteredPosts, ...filteredPosts] : filteredPosts} />
                         </motion.div>
                     ) : (
                         <motion.div
@@ -68,9 +107,14 @@ export function CampusWall() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                         >
-                            {posts.map((post) => (
+                            {filteredPosts.length > 0 ? filteredPosts.map((post) => (
                                 <PostCard key={post.id} post={post} />
-                            ))}
+                            )) : (
+                                <div className="text-center py-20">
+                                    <p className="text-gray-400">No memories found for this filter.</p>
+                                    <button onClick={() => { setActiveCategory("All"); setActiveYear("All Time"); }} className="text-np-navy font-medium mt-2 hover:underline">Clear Filters</button>
+                                </div>
+                            )}
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -79,7 +123,7 @@ export function CampusWall() {
             {/* FAB for Mobile / Action Button for Desktop */}
             <button
                 onClick={() => setIsCreateModalOpen(true)}
-                className="fixed bottom-24 right-6 md:bottom-12 md:right-12 bg-gradient-to-r from-np-red-600 to-np-red-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 z-40 group"
+                className="fixed bottom-24 right-6 md:bottom-12 md:right-12 bg-gradient-to-r from-np-navy to-blue-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 z-40 group"
             >
                 <Plus className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
             </button>

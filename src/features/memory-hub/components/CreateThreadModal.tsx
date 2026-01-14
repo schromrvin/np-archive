@@ -66,7 +66,7 @@ export function CreateThreadModal({ isOpen, onClose, onSubmit }: CreateThreadMod
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             placeholder="What's on your mind?"
-                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-np-red-500/20 focus:border-np-red-500 transition-all font-semibold text-lg"
+                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-np-navy/20 focus:border-np-navy transition-all font-semibold text-lg"
                             required
                         />
                     </div>
@@ -76,7 +76,7 @@ export function CreateThreadModal({ isOpen, onClose, onSubmit }: CreateThreadMod
                         <select
                             value={category}
                             onChange={(e) => setCategory(e.target.value as Thread["category"])}
-                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-np-red-500/20 focus:border-np-red-500 transition-all"
+                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-np-navy/20 focus:border-np-navy transition-all"
                         >
                             <option value="General">General</option>
                             <option value="Academic">Academic</option>
@@ -91,7 +91,7 @@ export function CreateThreadModal({ isOpen, onClose, onSubmit }: CreateThreadMod
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
                             placeholder="Elaborate on your thoughts..."
-                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-np-red-500/20 focus:border-np-red-500 transition-all min-h-[150px] resize-y"
+                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-np-navy/20 focus:border-np-navy transition-all min-h-[150px] resize-y"
                             required
                         />
                     </div>
@@ -102,7 +102,7 @@ export function CreateThreadModal({ isOpen, onClose, onSubmit }: CreateThreadMod
                             disabled={isSubmitting}
                             className={clsx(
                                 "px-8 py-2.5 rounded-full font-medium text-white transition-all duration-300 flex items-center gap-2",
-                                isSubmitting ? "bg-gray-300" : "bg-np-red-600 hover:bg-np-red-700 shadow-md hover:shadow-lg"
+                                isSubmitting ? "bg-gray-300" : "bg-np-navy hover:bg-np-navy/90 shadow-md hover:shadow-lg"
                             )}
                         >
                             {isSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}

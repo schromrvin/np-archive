@@ -49,6 +49,8 @@ export function CreatePostModal({ isOpen, onClose, onSubmit }: CreatePostModalPr
             likes: 0,
             comments: [],
             timestamp: "Just now",
+            date: new Date().toISOString().split('T')[0],
+            category: "Campus Life", // Default
             location: "Ngee Ann Polytechnic",
         };
 
@@ -111,7 +113,7 @@ export function CreatePostModal({ isOpen, onClose, onSubmit }: CreatePostModalPr
                                 <button
                                     type="button"
                                     onClick={() => fileInputRef.current?.click()}
-                                    className="flex items-center gap-2 text-gray-500 hover:text-np-red-600 transition-colors font-medium text-sm"
+                                    className="flex items-center gap-2 text-gray-500 hover:text-np-navy transition-colors font-medium text-sm"
                                 >
                                     <ImageIcon className="w-5 h-5" />
                                     Add Photo/Video
@@ -123,7 +125,7 @@ export function CreatePostModal({ isOpen, onClose, onSubmit }: CreatePostModalPr
                                     disabled={(!content && !selectedImage) || isSubmitting}
                                     className={clsx(
                                         "px-6 py-2 rounded-full font-medium text-white transition-all duration-300 flex items-center gap-2",
-                                        (!content && !selectedImage) || isSubmitting ? "bg-gray-300 cursor-not-allowed" : "bg-np-red-600 hover:bg-np-red-700 shadow-lg hover:shadow-xl"
+                                        (!content && !selectedImage) || isSubmitting ? "bg-gray-300 cursor-not-allowed" : "bg-np-navy hover:bg-np-navy/90 shadow-lg hover:shadow-xl"
                                     )}
                                 >
                                     {isSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}
