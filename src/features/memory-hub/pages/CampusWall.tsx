@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Plus, LayoutGrid, List } from "lucide-react";
 import { PostCard } from "../components/PostCard";
-import { CollageItem } from "../components/CollageItem";
+import { InfiniteCanvas } from "../components/InfiniteCanvas";
 import { MOCK_POSTS } from "../data";
 import type { Post } from "../types";
 import { CreatePostModal } from "../components/CreatePostModal";
@@ -31,7 +31,7 @@ export function CampusWall() {
                             "p-2 rounded-md transition-all",
                             viewMode === "collage" ? "bg-gray-100 text-gray-900 shadow-sm" : "text-gray-400 hover:text-gray-600"
                         )}
-                        title="Collage View"
+                        title="Kiosk (Infinite) View"
                     >
                         <LayoutGrid className="w-4 h-4" />
                     </button>
@@ -49,24 +49,17 @@ export function CampusWall() {
             </div>
 
             {/* Feed Layout */}
-            <div className={clsx("transition-all duration-500", viewMode === "collage" ? "max-w-5xl mx-auto px-4" : "max-w-xl mx-auto")}>
+            <div className={clsx("transition-all duration-500", viewMode === "collage" ? "w-full" : "max-w-xl mx-auto")}>
                 <AnimatePresence mode="wait">
                     {viewMode === "collage" ? (
                         <motion.div
                             key="collage"
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            className="columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="w-full h-full"
                         >
-                            {posts.map((post, index) => (
-                                <CollageItem
-                                    key={`collage-${post.id}`}
-                                    post={post}
-                                    index={index}
-                                    onClick={() => { }} // Could open lightbox
-                                />
-                            ))}
+                            <InfiniteCanvas posts={posts} />
                         </motion.div>
                     ) : (
                         <motion.div
