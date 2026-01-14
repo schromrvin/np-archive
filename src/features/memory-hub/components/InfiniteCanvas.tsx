@@ -124,13 +124,13 @@ export function InfiniteCanvas({ posts }: InfiniteCanvasProps) {
             onPointerLeave={handleInteractionEnd}
         >
             <motion.div
-                drag="x" // Constrain to X for easier looping logic in this iteration
+                drag
                 dragElastic={0.05}
                 dragMomentum={false} // Disable momentum to strictly control coordinates for loop (easier) or handle manually
                 style={{ x, y }}
                 onDragStart={handleInteractionStart}
                 onDragEnd={handleDragEnd}
-                className="absolute top-0 left-0 origin-top-left"
+                className="absolute top-0 left-0 origin-top-left w-full h-full"
             >
                 {/* Render the double set */}
                 {renderPosts.map((post, index) => {
