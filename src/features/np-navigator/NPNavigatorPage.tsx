@@ -2,12 +2,12 @@ import React, { useMemo, useState } from "react";
 import type { TabId } from "./types";
 import { liveDataMock } from "./data/liveData.mock";
 import { placesMock } from "./data/places.mock";
-import { AppHeader } from "./components/AppHeader";
+// import { AppHeader } from "./components/AppHeader";
 import { TopTabs } from "./components/TopTabs";
 import { BottomCta } from "./components/BottomCta";
 import { NowTab } from "./tabs/NowTab";
 import { DiscoverTab } from "./tabs/DiscoverTab";
-import { NavigateMap } from "./tabs/MapTab";
+import { MapTab } from "./tabs/MapTab";
 import { FacilitiesTab } from "./tabs/FacilitiesTab";
 import { ThenNowModal } from "./modals/ThenNowModal";
 
@@ -22,18 +22,20 @@ export function NPNavigator() {
 
   return (
     <div className="min-h-screen bg-slate-50 pb-24">
-      <AppHeader />
-
       <TopTabs activeTab={activeTab} onChange={setActiveTab} />
 
-      { <div className="p-4 max-w-4xl mx-auto">
-        {activeTab === "now" && <NowTab liveData={liveDataMock} />}
-        {activeTab === "discover" && (
-          <DiscoverTab places={placesMock} onOpenThenNow={setselectedPlaceId} />
-        )}
-        {activeTab === "map" && <NavigateMap />}
-        {activeTab === "facilities" && <FacilitiesTab />}
-      </div>
+      {
+        <div className="p-4 max-w-4xl mx-auto">
+          {activeTab === "now" && <NowTab liveData={liveDataMock} />}
+          {activeTab === "discover" && (
+            <DiscoverTab
+              places={placesMock}
+              onOpenThenNow={setselectedPlaceId}
+            />
+          )}
+          {activeTab === "map" && <MapTab />}
+          {activeTab === "facilities" && <FacilitiesTab />}
+        </div>
       }
       <BottomCta />
 

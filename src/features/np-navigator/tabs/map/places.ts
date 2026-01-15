@@ -9,13 +9,6 @@ export type Place = {
 
 export const PLACES: Place[] = [
   {
-    id: "block-51",
-    name: "Block 51",
-    aliases: ["blk 51", "makan place", "makan", "rain garden"],
-    point: [1400, 960],
-    category: "block",
-  },
-  {
     id: "makan-place",
     name: "Makan Place (Blk 51)",
     aliases: ["makan place", "canteen", "food court", "blk 51 makan"],
@@ -32,16 +25,16 @@ export const PLACES: Place[] = [
   {
     id: "munch",
     name: "Munch",
-    aliases: ["munch food court", "munch cafe"],
+    aliases: ["Food court"],
     point: [1020, 820],
     category: "food",
   },
   {
-    id: "gym",
-    name: "Gym",
-    aliases: ["sports complex", "fitness"],
+    id: "potato-corner",
+    name: "Potato Corner",
+    aliases: ["Fries", "Food"],
     point: [1680, 1300],
-    category: "facility",
+    category: "food",
   },
 ];
 
