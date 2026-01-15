@@ -281,7 +281,7 @@ export function MapTab() {
       </div>
 
       {/* Map */}
-      <div className="relative h-[600px] rounded-2xl overflow-hidden border border-slate-200 bg-white">
+      <div className="z-0 relative h-[600px] rounded-2xl overflow-hidden border border-slate-200 bg-white">
         <MapContainer
           ref={mapRef}
           crs={L.CRS.Simple}
@@ -292,7 +292,6 @@ export function MapTab() {
           center={USER_POINT}
           minZoom={-2}
           maxZoom={2}
-          zoomControl
           style={{ height: "100%", width: "100%" }}
         >
           <EnsureCurrentLocationMarkerCSS />

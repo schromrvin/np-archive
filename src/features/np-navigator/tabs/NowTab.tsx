@@ -5,14 +5,20 @@ import { StudySpotCard } from "../cards/StudySpotCard";
 import { FoodSpotsCard } from "../cards/FoodSpots";
 import { FacilityCard } from "../cards/FacilityCard";
 import { Book, Coffee, Wifi } from "lucide-react";
+import { BottomCta } from "../components/BottomCta";
 
 export function NowTab(props: { liveData: LiveData }) {
   const sortedStudySpots = useMemo(() => {
-    return [...props.liveData.studySpots].sort((a, b) => a.occupancy - b.occupancy);
+    return [...props.liveData.studySpots].sort(
+      (a, b) => a.occupancy - b.occupancy
+    );
   }, [props.liveData.studySpots]);
 
   // top 1–2 are “Best now”
-  const bestNowNames = useMemo(() => new Set(sortedStudySpots.slice(0, 2).map((s) => s.name)), [sortedStudySpots]);
+  const bestNowNames = useMemo(
+    () => new Set(sortedStudySpots.slice(0, 2).map((s) => s.name)),
+    [sortedStudySpots]
+  );
 
   return (
     <div className="space-y-6">
@@ -66,6 +72,7 @@ export function NowTab(props: { liveData: LiveData }) {
           ))}
         </div>
       </section>
+      <BottomCta />
     </div>
   );
 }

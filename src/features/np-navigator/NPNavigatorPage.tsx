@@ -37,7 +37,6 @@ export function NPNavigator() {
           {activeTab === "facilities" && <FacilitiesTab />}
         </div>
       }
-      <BottomCta />
 
       <ThenNowModal
         open={!!selectedPlace}
