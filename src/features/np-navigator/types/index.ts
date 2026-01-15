@@ -1,6 +1,3 @@
-import { bool, string } from "joi";
-import type { S } from "node_modules/framer-motion/dist/types.d-DagZKalS";
-
 export interface StudySpot{
     name: string;
     occupancy: number;
@@ -11,7 +8,7 @@ export interface StudySpot{
     images: string[];
 }
 
-export interface Canteen{
+export interface FoodSpots{
     name: string;
     crowdLevel: "Low" | "Medium" | "High";
     waitTime: string;
@@ -24,28 +21,26 @@ export interface Facility{
     name: string;
     status: "Open" | "Closed";
     closes: string;
-    crowdLevel: "Low" | "Medium" | "High";
     location: string;
     images: string[];
 }
 
-export interface Building{
+export interface Places{
     id: string;
     name: string;
     currentUse: string;
-    yearBuilt: number;
+    yearBuilt: string;
     yearNow:string;
     funFact:string;
-    historicalImage: string;
-    currentImage: string;
+    pastImage: string;
+    presentImage: string;
     story: {past:string, present:string};
-    facts: string[];
     facilities: string[]; 
 }
 
 export interface LiveData {
     studySpots: StudySpot[];
-    canteens: Canteen[];
+    foodSpots: FoodSpots[];
     facilities: Facility[];
 }
 

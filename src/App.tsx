@@ -2,13 +2,13 @@ import { HashRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import { NavBar } from "@/components/NavBar";
 import { Home } from "@/pages/Home";
 import { HuntDashboard } from "@/features/scavenger-hunt/HuntDashboard";
-import { PlaceholderPage } from "@/components/PlaceholderPage";
 import { Leaderboard } from "@/features/scavenger-hunt/Leaderboard";
 import { MemoryHubLayout } from "@/features/memory-hub/layout/MemoryHubLayout";
 import { CampusWall } from "@/features/memory-hub/pages/CampusWall";
 import { StudentVoices } from "@/features/memory-hub/pages/StudentVoices";
 import { TimeCapsule } from "@/features/memory-hub/pages/TimeCapsule";
 import { NPWrapped } from "@/features/memory-hub/pages/NPWrapped";
+import { NPNavigator } from "@/features/np-navigator/NPNavigatorPage";
 import { Navigate } from "react-router-dom";
 
 function AppLayout() {
@@ -33,15 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/scavenger-hunt" element={<HuntDashboard />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route
-            path="/heritage"
-            element={
-              <PlaceholderPage
-                title="Heritage Map"
-                description="Explore the rich history of Ngee Ann Polytechnic through an interactive map of our campus landmarks."
-              />
-            }
-          />
+          <Route path="/navigator" element={<NPNavigator />} />
           <Route path="/memory" element={<MemoryHubLayout />}>
             <Route index element={<Navigate to="wall" replace />} />
             <Route path="wall" element={<CampusWall />} />

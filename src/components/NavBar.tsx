@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 export function NavBar() {
     const navItems = [
         { icon: Home, label: "Home", to: "/" },
-        { icon: Map, label: "Heritage", to: "/heritage" },
+        { icon: Map, label: "Navigator", to: "/navigator" },
         { icon: Compass, label: "Scavenger Hunt", to: "/scavenger-hunt", highlight: true },
         { icon: Search, label: "Memory", to: "/memory" },
     ];
