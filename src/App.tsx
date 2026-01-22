@@ -10,6 +10,7 @@ import { StudentVoices } from "@/features/memory-hub/pages/StudentVoices";
 import { TimeCapsule } from "@/features/memory-hub/pages/TimeCapsule";
 import { NPWrapped } from "@/features/memory-hub/pages/NPWrapped";
 import { Navigate } from "react-router-dom";
+import { Chatbot } from "@/features/chatbot/Chatbot";
 
 function AppLayout() {
   return (
@@ -21,6 +22,7 @@ function AppLayout() {
         <Outlet />
       </main>
       <NavBar />
+      <Chatbot />
     </>
   );
 }
