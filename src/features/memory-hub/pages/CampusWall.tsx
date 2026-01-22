@@ -120,10 +120,10 @@ export function CampusWall() {
                 </AnimatePresence>
             </div>
 
-            {/* FAB for Mobile / Action Button for Desktop */}
+            {/* FAB for Mobile / Action Button for Desktop - Moved to left to avoid Chatbot overlap */}
             <button
                 onClick={() => setIsCreateModalOpen(true)}
-                className="fixed bottom-24 right-6 md:bottom-12 md:right-12 bg-gradient-to-r from-np-navy to-blue-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 z-40 group"
+                className="fixed bottom-28 left-6 md:bottom-8 md:left-8 bg-gradient-to-r from-np-navy to-blue-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 z-40 group"
             >
                 <Plus className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
             </button>
