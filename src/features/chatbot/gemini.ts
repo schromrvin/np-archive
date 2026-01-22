@@ -1,6 +1,12 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+declare const process: {
+    env: {
+        GEMINI_API_KEY: string;
+    };
+};
+
+const API_KEY = process.env.GEMINI_API_KEY;
 
 // Initialize even without key to prevent immediate crash, but handle checks later
 const genAI = new GoogleGenerativeAI(API_KEY || "dummy_key");
@@ -28,7 +34,7 @@ export async function getGeminiResponse(
     newMessage: string
 ): Promise<string> {
     if (!API_KEY) {
-        return "Config Error: VITE_GEMINI_API_KEY is missing. Please add it to your .env file.";
+        return "Config Error: GEMINI_API_KEY is missing. Please add it to your .env file.";
     }
 
     try {
