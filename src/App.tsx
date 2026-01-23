@@ -41,7 +41,7 @@ function App() {
             path="/explore"
             element={
               <PlaceholderPage
-                title="Heritage Map"
+                title="Explore"
                 description="Explore the rich history of Ngee Ann Polytechnic through an interactive map of our campus landmarks."
               />
             }

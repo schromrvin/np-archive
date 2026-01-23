@@ -1,6 +1,9 @@
 
 
+import { usePageTitle } from "@/lib/usePageTitle";
+
 export function Timeline() {
+    usePageTitle("NP Archive | Timeline");
     const timelineUrl = `${import.meta.env.BASE_URL}timeline_mirror.html`;
 
     return (

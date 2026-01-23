@@ -2,8 +2,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { LayoutGrid, MessageSquare, Clock } from "lucide-react";
 import { clsx } from "clsx";
+import { usePageTitle } from "@/lib/usePageTitle";
 
 export function MemoryHubLayout() {
+    usePageTitle("NP Archive | Memory");
     const tabs = [
         { name: "Campus Wall", path: "wall", icon: LayoutGrid },
         { name: "Student Voices", path: "voices", icon: MessageSquare },
