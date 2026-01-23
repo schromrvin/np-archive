@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { Home, Map, Compass, Search } from "lucide-react";
+import { Home, Map, Compass, Search, Hourglass } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function NavBar() {
     const navItems = [
         { icon: Home, label: "Home", to: "/" },
-        { icon: Map, label: "Heritage", to: "/heritage" },
+        { icon: Hourglass, label: "Timeline", to: "/timeline" },
+        { icon: Map, label: "Explore", to: "/explore" },
         { icon: Compass, label: "Scavenger Hunt", to: "/scavenger-hunt", highlight: true },
         { icon: Search, label: "Memory", to: "/memory" },
     ];
@@ -28,8 +29,17 @@ export function NavBar() {
                         >
                             {({ isActive }) => (
                                 <>
-                                    <item.icon className={cn("size-6", isActive && "stroke-[2.5px]")} />
-                                    <span className="text-[10px] font-medium">{item.label}</span>
+                                    <item.icon
+                                        className={cn(
+                                            "size-6",
+                                            isActive && "stroke-[2.5px]",
+                                            item.highlight && "text-amber-500 sparkle-pulse"
+                                        )}
+                                    />
+                                    <span className={cn(
+                                        "text-[10px] font-medium",
+                                        item.highlight && "text-amber-600 font-bold"
+                                    )}>{item.label}</span>
                                 </>
                             )}
                         </NavLink>
@@ -54,8 +64,11 @@ export function NavBar() {
                                 )
                             }
                         >
-                            <item.icon className="size-4" />
-                            <span>{item.label}</span>
+                            <item.icon className={cn(
+                                "size-4",
+                                item.highlight && "text-amber-500 sparkle-pulse"
+                            )} />
+                            <span className={cn(item.highlight && "text-amber-600 font-bold")}>{item.label}</span>
                         </NavLink>
                     ))}
                 </div>

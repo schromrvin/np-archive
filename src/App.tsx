@@ -1,6 +1,7 @@
 import { HashRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import { NavBar } from "@/components/NavBar";
 import { Home } from "@/pages/Home";
+import { Timeline } from "@/pages/Timeline";
 import { HuntDashboard } from "@/features/scavenger-hunt/HuntDashboard";
 import { PlaceholderPage } from "@/components/PlaceholderPage";
 import { Leaderboard } from "@/features/scavenger-hunt/Leaderboard";
@@ -33,10 +34,11 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/timeline" element={<Timeline />} />
           <Route path="/scavenger-hunt" element={<HuntDashboard />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route
-            path="/heritage"
+            path="/explore"
             element={
               <PlaceholderPage
                 title="Heritage Map"
