@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export function Timeline() {
     const timelineUrl = `${import.meta.env.BASE_URL}timeline_mirror.html`;
