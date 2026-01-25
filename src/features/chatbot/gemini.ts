@@ -6,7 +6,7 @@ declare const process: {
     };
 };
 
-const API_KEY = process.env.GEMINI_API_KEY;
+const API_KEY = process.env.GEMINI_API_KEY ? atob(process.env.GEMINI_API_KEY) : "";
 
 // Initialize even without key to prevent immediate crash, but handle checks later
 const genAI = new GoogleGenerativeAI(API_KEY || "dummy_key");

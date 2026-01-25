@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     base: "/np-archive/",
     define: {
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+      'process.env.GEMINI_API_KEY': JSON.stringify(Buffer.from(env.GEMINI_API_KEY || '').toString('base64'))
     },
     server: {
       port: 3000,
